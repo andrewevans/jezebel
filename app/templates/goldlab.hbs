@@ -10,9 +10,7 @@
       {{#each model.user.palette.colors as |color|}}
           <li>{{color.title}}<br />
               <ul>
-                {{#each color.shades as |shade|}}
-                    <li>{{shade.value}}</li>
-                {{/each}}
+                {{user-shades-list color=color}}
               </ul>
           </li>
       {{/each}}
