@@ -6,15 +6,7 @@
 <div>
     <h3>Conception</h3>
     <p>Your palette:</p>
-    <ul>
-      {{#each model.user.palette.colors as |color|}}
-          <li>{{color.title}}<br />
-              <ul>
-                {{user-shades-list color=color}}
-              </ul>
-          </li>
-      {{/each}}
-    </ul>
+  {{user-shades-list shades=model.user.palette.getShades}}
 </div>
 
 <div>

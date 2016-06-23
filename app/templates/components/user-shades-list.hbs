@@ -1,3 +1,7 @@
-{{#each sortedShades as |shade|}}
-    <li>{{shade.value}}</li>
-{{/each}}
+<ul style="list-unstyled">
+  {{#each shades as |shade|}}
+      <li>
+        {{shade.color.title}}: {{shade.value}}
+      </li>
+  {{/each}}
+</ul>
