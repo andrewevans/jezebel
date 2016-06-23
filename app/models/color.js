@@ -7,4 +7,5 @@ export default Model.extend({
   description: attr(),
   type: attr(),
   palettes: hasMany('palette'),
+  shades: hasMany('shade'),
 });
