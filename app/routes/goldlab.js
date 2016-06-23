@@ -30,30 +30,35 @@ export default Ember.Route.extend({
     gender.get('shades').pushObject(
       this.store.createRecord('shade', {
         value: '3',
+        weight: '0',
       })
     );
 
     gender.get('shades').pushObject(
       this.store.createRecord('shade', {
         value: '-5',
+        weight: '4',
       })
     );
 
     startsWith.get('shades').pushObject(
       this.store.createRecord('shade', {
         value: 'a',
-      })
-    );
-
-    startsWith.get('shades').pushObject(
-      this.store.createRecord('shade', {
-        value: 's',
+        weight: '1',
       })
     );
 
     startsWith.get('shades').pushObject(
       this.store.createRecord('shade', {
         value: 'el',
+        weight: '2',
+      })
+    );
+
+    startsWith.get('shades').pushObject(
+      this.store.createRecord('shade', {
+        value: 's',
+        weight: '3',
       })
     );
 
