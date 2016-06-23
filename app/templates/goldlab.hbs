@@ -1,4 +1,4 @@
-<h2>The Name Alchemist's Laboratory</h2>
+<h2>{{model.user.username}}'s Name Alchemist's Laboratory</h2>
 
 <p>From conception to inception, give me a name.<br />
     <img src="http://cdn-static.denofgeek.com/sites/denofgeek/files/styles/insert_main_wide_image/public/4/22//neverending_story_princess.jpg?itok=RatYCToz" /></p>
@@ -7,7 +7,15 @@
     <h3>Conception</h3>
     <p>Your palette:</p>
     <ul>
-        <li>jezebel</li>
+      {{#each model.user.palette.colors as |color|}}
+          <li>{{color.title}}<br />
+              <ul>
+                {{#each color.shades as |shade|}}
+                    <li>{{shade.value}}</li>
+                {{/each}}
+              </ul>
+          </li>
+      {{/each}}
     </ul>
 </div>
 
