@@ -1,7 +1,8 @@
-<ul style="list-unstyled">
-  {{#each shades as |shade|}}
-      <li>
-        {{shade.color.title}}: {{shade.value}}
-      </li>
+{{#sortable-group tagName="ul" onChange="reorderItems" as |group|}}
+  {{#each sortedShades as |shade|}}
+    {{#sortable-item tagName="li" model=shade group=group handle=".handle"}}
+        [weight = {{shade.weight}}] {{shade.color.title}}: {{shade.value}}
+        <span class="handle">&varr;</span>
+    {{/sortable-item}}
   {{/each}}
-</ul>
+{{/sortable-group}}
