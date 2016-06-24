@@ -1,18 +1,29 @@
-<h2>{{model.user.username}}'s Name Alchemist's Laboratory</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <h2>{{model.user.username}}'s Name Alchemist's Laboratory</h2>
 
-<p>From conception to inception, give me a name.<br />
-    <img src="http://cdn-static.denofgeek.com/sites/denofgeek/files/styles/insert_main_wide_image/public/4/22//neverending_story_princess.jpg?itok=RatYCToz" /></p>
-
-<div>
-    <h3>Conception</h3>
-    <p>Your palette:</p>
-  {{user-shades-list shades=model.user.palette.getShades}}
+            <p>From conception to inception, give me a name.</p>
+        </div>
+    </div>
 </div>
 
-<div>
-    <h3>Inception</h3>
-    <p>Your creation:</p>
-    <ul>
-        <li>jezebel</li>
-    </ul>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <h3>Your palette:</h3>
+          {{user-shades-list shades=model.user.palette.getShades}}
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <div>
+                <img src="https://dl.dropboxusercontent.com/s/r3sesz1gjizn9qk/neverending_story_princess.jpg" style="max-width: 100%;" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <h3>Your creation</h3>
+            <ul class="list-unstyled">
+                <li>jezebel</li>
+            </ul>
+        </div>
+    </div>
 </div>
