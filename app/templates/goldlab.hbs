@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-4">
             <h3>Your palette:</h3>
-          {{user-shades-list shades=model.user.palette.getShades}}
+          {{user-shades-list updateCharacterWeightRanks=(route-action "updateCharacterWeightRanks" model.user) user=model.user shades=model.user.palette.getShades}}
         </div>
         <div class="col-xs-12 col-md-4">
             <div>
@@ -21,9 +21,7 @@
         </div>
         <div class="col-xs-12 col-md-4">
             <h3>Your creation</h3>
-            <ul class="list-unstyled">
-                <li>jezebel</li>
-            </ul>
+          {{ranked-characters-list user=model.user characters=model.characters}}
         </div>
     </div>
 </div>

@@ -5,6 +5,7 @@ import attr from 'ember-data/attr';
 export default Model.extend({
   title: attr(),
   description: attr(),
+  weight_ranked: attr('number', { defaultValue: 0 }),
   gender: attr(),
   origin: attr(),
   theme: attr(),
