@@ -23,6 +23,8 @@ export default Ember.Component.extend({
       //@TODO: Move setting to somewhere like a route-action
       shade.set('weight_ranked', weight_ranked);
     });
+
+    this.sendAction('updateCharacterWeightRanks');
   },
   actions: {
     reorderItems(itemModels) {

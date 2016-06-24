@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-4">
             <h3>Your palette:</h3>
-          {{user-shades-list user=model.user shades=model.user.palette.getShades}}
+          {{user-shades-list updateCharacterWeightRanks=(route-action "updateCharacterWeightRanks" model.user) user=model.user shades=model.user.palette.getShades}}
         </div>
         <div class="col-xs-12 col-md-4">
             <div>
