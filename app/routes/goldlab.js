@@ -64,13 +64,68 @@ export default Ember.Route.extend({
     });
 
     this.store.createRecord('character', {
-      title: 'Sandra',
+      title: 'Lana',
       gender: '3',
     });
 
     this.store.createRecord('character', {
       title: 'Denise',
       gender: '4',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Melody',
+      gender: '4',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Kirsten',
+      gender: '4',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Rose',
+      gender: '4',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Julia',
+      gender: '3',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Krewshawn',
+      gender: '0',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Tupac',
+      gender: '-1',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Noah',
+      gender: '-2',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Celeste',
+      gender: '2',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Madonna',
+      gender: '5',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Jezebel',
+      gender: '5',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Yulia',
+      gender: '3',
     });
 
     /*
