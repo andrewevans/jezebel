@@ -6,7 +6,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('goldlab', { path: '/goldlab' });
+  this.route('goldlab', { path: '/' });
 });
 
 export default Router;

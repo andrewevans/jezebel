@@ -62,11 +62,11 @@ export default Ember.Component.extend({
         this.set('count', 0);
       }
 
-      if ((Math.floor(Math.random() * (max - min + 1)) + min) == 5) {
+      if ((Math.floor(Math.random() * (max - min + 1)) + min) === 5) {
         this.set('isSponsored', true);
       }
 
-      yield timeout((characters.objectAt(this.count).get('weight_ranked') * 1) + 10);
+      yield timeout((characters.objectAt(this.count).get('weight_ranked') * 1.1) + 10);
     }
 
     this.set('displayCharacterName', "DONE!");
