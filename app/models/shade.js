@@ -5,5 +5,6 @@ import { belongsTo } from 'ember-data/relationships';
 export default Model.extend({
   value: attr(),
   weight: attr(),
+  weight_ranked: attr(),
   color: belongsTo('color'),
 });
