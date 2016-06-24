@@ -13,6 +13,66 @@ export default Ember.Route.extend({
       title: 'startsWith',
     });
 
+    this.store.createRecord('character', {
+      title: 'Jezebel',
+      gender: '5',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Andrew',
+      gender: '-5',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Andrea',
+      gender: '1',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Ana',
+      gender: '2',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Brittany',
+      gender: '1',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Ellis',
+      gender: '0',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Sari',
+      gender: '1',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Victoria',
+      gender: '5',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Eli',
+      gender: '-2',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Isa',
+      gender: '1',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Sandra',
+      gender: '3',
+    });
+
+    this.store.createRecord('character', {
+      title: 'Denise',
+      gender: '4',
+    });
+
     /*
     Dynamic Mock user data
      */
@@ -67,6 +127,7 @@ export default Ember.Route.extend({
 
     return Ember.RSVP.hash({
       user: user,
+      characters: this.store.peekAll('character'),
     });
   }
 });
