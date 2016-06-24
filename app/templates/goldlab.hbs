@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <h2>{{model.user.username}}'s Name Alchemist's Laboratory</h2>
@@ -8,11 +8,10 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-md-4">
-            <h3>Conception</h3>
-            <p>Your palette:</p>
+            <h3>Your palette:</h3>
           {{user-shades-list shades=model.user.palette.getShades}}
         </div>
         <div class="col-xs-12 col-md-4">
@@ -21,8 +20,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-md-4">
-            <h3>Inception</h3>
-            <p>Your creation:</p>
+            <h3>Your creation</h3>
             <ul class="list-unstyled">
                 <li>jezebel</li>
             </ul>
