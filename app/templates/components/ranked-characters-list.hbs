@@ -3,3 +3,14 @@
       <li>{{character.weight_ranked}}) {{character.title}}</li>
   {{/each}}
 </ul>
+
+<div id="inception-display" class="{{if isInverse 'inverse' '' }} {{if isMasculine 'masculine' 'feminine'}} {{if isSponsored 'sponsored' ''}} {{if showInception 'overlay' 'hidden'}} {{if isImportant 'important' ''}}">
+    <audio id="displayMusic" src="https://dl.dropboxusercontent.com/s/9hcwd5elae9wbw6/the-winner-is.mp3" style="visibility: hidden"></audio>
+
+    <div class="container">
+      {{displayCharacterName}}
+    </div>
+</div>
+<button onclick={{perform cycleNames}}>
+    See My Inception
+</button>
