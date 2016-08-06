@@ -1,5 +1,16 @@
-<ul class="list-unstyled">
+<div id="inception-display" class="{{if isInverse 'inverse' '' }} {{if isMasculine 'masculine' 'feminine'}} {{if isSponsored 'sponsored' ''}} {{if showInception 'overlay' 'hidden'}} {{if isImportant 'important' ''}}">
+    <audio id="displayMusic" src="https://dl.dropboxusercontent.com/s/9hcwd5elae9wbw6/the-winner-is.mp3" style="visibility: hidden"></audio>
+
+    <div class="container">
+      {{displayCharacterName}}
+    </div>
+</div>
+<div id="inception-dashboard" onclick={{perform cycleNames}}>
+    <div>"Give Me a Name"</div>
+</div>
+
+<ul class="list-unstyled" style="color: #ccc; font-size: 0.5em">
   {{#each sortedCharacters as |character|}}
-      <li>{{character.weight_ranked}}) {{character.title}}</li>
+      <li><kbd>{{character.weight_ranked}}) {{character.title}}</kbd></li>
   {{/each}}
 </ul>

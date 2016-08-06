@@ -1,26 +1,9 @@
-<div class="container-fluid">
+<div class="container-fluid" style="height: 100vh;">
     <div class="row">
-        <div class="col-xs-12 col-md-12">
-            <h2>{{model.user.username}}'s Name Alchemist's Laboratory</h2>
-
-            <p>From conception to inception, give me a name.</p>
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12 col-md-4">
-            <h3>Your palette:</h3>
+        <div class="col-xs-6 col-md-3">
           {{user-shades-list updateCharacterWeightRanks=(route-action "updateCharacterWeightRanks" model.user) user=model.user shades=model.user.palette.getShades}}
         </div>
-        <div class="col-xs-12 col-md-4">
-            <div>
-                <img src="https://dl.dropboxusercontent.com/s/r3sesz1gjizn9qk/neverending_story_princess.jpg" style="max-width: 100%;" />
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-4">
-            <h3>Your creation</h3>
+        <div class="col-xs-6 col-md-9">
           {{ranked-characters-list user=model.user characters=model.characters}}
         </div>
     </div>
