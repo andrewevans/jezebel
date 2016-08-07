@@ -2,6 +2,12 @@ export default function() {
 
   this.get('/characters');
 
+  this.get('/users/:id');
+
+  this.get('/palettes/:id');
+
+  this.get('/colors/:id');
+
   // These comments are here to help you get started. Feel free to delete them.
 
   /*

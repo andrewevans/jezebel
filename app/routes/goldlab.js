@@ -5,28 +5,7 @@ export default Ember.Route.extend({
     /*
     Static mock data
      */
-    var gender = this.store.createRecord('color', {
-      title: 'gender',
-    });
-
-    var startsWith = this.store.createRecord('color', {
-      title: 'startsWith',
-    });
-
     /*
-    Dynamic Mock user data
-     */
-    var user = this.store.createRecord('user', {
-      username: 'mama',
-    });
-
-    this.store.createRecord('palette', {
-      title: 'my colorful palette',
-      user: user,
-    });
-
-    var my_palette = user.get('palette');
-
     gender.get('shades').pushObject(
       this.store.createRecord('shade', {
         value: '3',
@@ -61,12 +40,12 @@ export default Ember.Route.extend({
         weight: '3',
       })
     );
-
-    my_palette.get('colors').pushObject(gender);
-    my_palette.get('colors').pushObject(startsWith);
+*/
+    //my_palette.get('colors').pushObject(gender);
+    //my_palette.get('colors').pushObject(startsWith);
 
     return Ember.RSVP.hash({
-      user: user,
+      user: this.store.findRecord('user', 4),
       characters: this.store.findAll('character'),
     });
   },
