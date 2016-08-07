@@ -2,50 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    /*
-    Static mock data
-     */
-    /*
-    gender.get('shades').pushObject(
-      this.store.createRecord('shade', {
-        value: '3',
-        weight: '0',
-      })
-    );
-
-    gender.get('shades').pushObject(
-      this.store.createRecord('shade', {
-        value: '-5',
-        weight: '4',
-      })
-    );
-
-    startsWith.get('shades').pushObject(
-      this.store.createRecord('shade', {
-        value: 'a',
-        weight: '1',
-      })
-    );
-
-    startsWith.get('shades').pushObject(
-      this.store.createRecord('shade', {
-        value: 'el',
-        weight: '2',
-      })
-    );
-
-    startsWith.get('shades').pushObject(
-      this.store.createRecord('shade', {
-        value: 's',
-        weight: '3',
-      })
-    );
-*/
-    //my_palette.get('colors').pushObject(gender);
-    //my_palette.get('colors').pushObject(startsWith);
 
     return Ember.RSVP.hash({
-      user: this.store.findRecord('user', 4),
+      user: this.store.findRecord('user', 4, { include: 'palettes' }),
+      colors: this.store.findAll('color'),
       characters: this.store.findAll('character'),
     });
   },

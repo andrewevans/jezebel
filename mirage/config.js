@@ -6,7 +6,11 @@ export default function() {
 
   this.get('/palettes/:id');
 
+  this.get('/colors');
+
   this.get('/colors/:id');
+
+  this.get('/shades/:id');
 
   // These comments are here to help you get started. Feel free to delete them.
 

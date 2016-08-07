@@ -6,6 +6,5 @@ export default Model.extend({
   title: attr(),
   description: attr(),
   type: attr(),
-  palettes: hasMany('palette'),
-  shades: hasMany('shade'),
+  shades: hasMany(),
 });

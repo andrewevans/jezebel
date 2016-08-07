@@ -6,5 +6,6 @@ export default Model.extend({
   value: attr(),
   weight: attr(),
   weight_ranked: attr(),
-  color: belongsTo('color'),
+  color: belongsTo(), // uses color as if it was its prototype
+  palette: belongsTo(),
 });

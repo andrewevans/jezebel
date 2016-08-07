@@ -5,8 +5,8 @@ import Ember from 'ember';
 
 export default Model.extend({
   title: attr(),
-  user: belongsTo('user'),
-  colors: hasMany('color'),
+  user: belongsTo(),
+  shades: hasMany(),
   /*
    Returns a flattened list of shades.
    It is necessary to compare shades across colors.
