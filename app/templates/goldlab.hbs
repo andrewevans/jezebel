@@ -3,7 +3,7 @@
         <div class="col-xs-6 col-md-3">
             <h1>{{model.user.username}}'s palettes</h1>
           {{#each model.user.palettes as |palette|}}
-            {{user-palette updateShadeWeights=(route-action 'updateShadeWeights') palette=palette}}
+            {{user-palette updateShadeWeights=(route-action 'updateShadeWeights') palette=palette colors=model.colors}}
           {{/each}}
         </div>
         <div class="col-xs-6 col-md-9">
