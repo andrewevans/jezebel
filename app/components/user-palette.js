@@ -33,6 +33,11 @@ export default Ember.Component.extend({
     });
   },
   actions: {
+
+    // This can be used by child components to recalculate weights after changes have happened
+    updateWeights() {
+      this.setWeights();
+    },
     reorderItems(itemModels) {
       this.setWeights(itemModels);
     },

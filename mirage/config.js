@@ -6,6 +6,8 @@ export default function() {
 
   this.get('/palettes/:id');
 
+  this.patch('/palettes/:id');
+
   this.get('/colors');
 
   this.get('/colors/:id');
@@ -13,6 +15,8 @@ export default function() {
   this.get('/shades/:id');
 
   this.patch('/shades/:id');
+
+  this.post('/shades');
 
   // These comments are here to help you get started. Feel free to delete them.
 

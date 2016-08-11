@@ -10,6 +10,17 @@ export default Ember.Route.extend({
     });
   },
   actions: {
+    addShade(palette, color, shade_value) {
+      var shade = this.store.createRecord('shade', {
+        value: shade_value,
+        color: color,
+        palette: palette,
+      });
+
+      //@TODO: Save shade here.
+
+      palette.save();
+    },
     updateShadeWeights(shade, weight) {
 
       shade.set('weight', weight);
