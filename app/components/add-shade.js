@@ -29,6 +29,9 @@ export default Ember.Component.extend({
 
       // Reset dropdown
       this.$(".dropdown").find('a.dropdown-toggle').html(this.get('default_dropdown_text') + ' <span class="caret"></span>');
+
+      // Now that there's a new shade on the palette, have the palette recalculate all of the shades' weights
+      this.sendAction('updateWeights');
     },
   },
 });

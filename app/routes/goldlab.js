@@ -18,7 +18,8 @@ export default Ember.Route.extend({
         palette: palette,
       });
 
-      shade.save();
+      //@TODO: Save shade here.
+
       palette.save();
     },
     updateShadeWeights(shade, weight) {
