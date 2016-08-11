@@ -15,8 +15,6 @@ export default Ember.Component.extend({
       self.$(this).parents(".dropdown").find('a.dropdown-toggle').val(self.$(this).data('value'));
     });
   },
-  click() {
-  },
   actions: {
     selectColor(color) {
       this.set('color', color);
