@@ -1,10 +1,12 @@
 <div class="container-fluid" style="height: 100vh;">
     <div class="row">
         <div class="col-xs-6 col-md-3">
-          {{user-shades-list updateCharacterWeightRanks=(route-action "updateCharacterWeightRanks" model.user) user=model.user shades=model.user.palette.getShades}}
+            <h1>{{model.user.username}}'s palettes</h1>
+          {{#each model.user.palettes as |palette|}}
+            {{user-palette updateShadeWeights=(route-action 'updateShadeWeights') palette=palette}}
+          {{/each}}
         </div>
         <div class="col-xs-6 col-md-9">
-          {{ranked-characters-list user=model.user characters=model.characters}}
         </div>
     </div>
 </div>

@@ -4,12 +4,17 @@ export default Ember.Route.extend({
   model() {
 
     return Ember.RSVP.hash({
-      user: this.store.findRecord('user', 4, { include: 'palettes' }),
+      user: this.store.findRecord('user', 4, { include: 'palettes, shades' }),
       colors: this.store.findAll('color'),
       characters: this.store.findAll('character'),
     });
   },
   actions: {
+    updateShadeWeights(shade, weight) {
+
+      shade.set('weight', weight);
+      shade.save();
+    },
     updateCharacterWeightRanks(user) {
       var characters = this.store.peekAll('character'),
         shades = user.get('palette').get('getShades');

@@ -1,0 +1,11 @@
+<h2>{{palette.title}}</h2>
+
+{{#sortable-group tagName="div" onChange="reorderItems" as |group|}}
+  {{#each sorted_shades as |shade|}}
+    {{#sortable-item tagName="div" model=shade group=group handle=".handle"}}
+        <button class="btn btn-default btn-lg btn-block handle">
+            <sup>{{shade.weight}}|{{shade.weight_ranked}}</sup> {{shade.color.title}} <b>{{shade.value}}</b>
+        </button>
+    {{/sortable-item}}
+  {{/each}}
+{{/sortable-group}}

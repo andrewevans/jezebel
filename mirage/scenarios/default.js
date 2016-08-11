@@ -8,12 +8,17 @@ export default function(server) {
 
   // Create the user's palette
   let palette = user.createPalette({
-    title: 'The mama palette',
+    title: 'A Boy Named Sue',
   });
 
   // Create some shades
   let very_female = palette.createShade({
     value: 5,
+    color: gender,
+  });
+
+  let mid_male = palette.createShade({
+    value: -2,
     color: gender,
   });
 
@@ -30,6 +35,7 @@ export default function(server) {
   // Add some shades to the user's palette
   palette.shades = [
     very_female,
+    mid_male,
     startsWith_a,
     startsWith_el,
   ];
