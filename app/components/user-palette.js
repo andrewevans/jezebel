@@ -33,7 +33,7 @@ export default Ember.Component.extend({
     });
   },
   actions: {
-    reorderItems(itemModels, draggedModel) {
+    reorderItems(itemModels) {
       this.setWeights(itemModels);
     },
   },
