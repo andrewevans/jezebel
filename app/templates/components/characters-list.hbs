@@ -1,5 +1,5 @@
 <ul class="list-unstyled">
-  {{#each characters as |character|}}
-      <li>{{character.title}}</li>
+  {{#each sorted_characters as |character|}}
+      <li>{{character.title}} <sup>{{character.weight_ranked}}</sup></li>
   {{/each}}
 </ul>
