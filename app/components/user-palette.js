@@ -31,6 +31,8 @@ export default Ember.Component.extend({
 
       this.sendAction('updateShadeWeights', shade, weight);
     });
+
+    this.sendAction('updateCharacterWeightRanks'); // Update all of the characters' weighted ranks with these new shade weights
   },
   actions: {
 

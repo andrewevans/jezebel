@@ -1,12 +1,14 @@
 <div class="container-fluid" style="height: 100vh;">
-    <div class="row">
-        <div class="col-xs-6 col-md-3">
-            <h1>{{model.user.username}}'s palettes</h1>
-          {{#each model.user.palettes as |palette|}}
-            {{user-palette updateShadeWeights=(route-action 'updateShadeWeights') palette=palette colors=model.colors}}
-          {{/each}}
-        </div>
-        <div class="col-xs-6 col-md-9">
-        </div>
-    </div>
+  {{#each model.user.palettes as |palette|}}
+      <div class="row">
+          <div class="col-xs-6 col-md-3">
+              <h1>{{model.user.username}}'s palettes</h1>
+            {{user-palette updateShadeWeights=(route-action 'updateShadeWeights') updateCharacterWeightRanks=(route-action 'updateCharacterWeightRanks' model.characters palette) palette=palette colors=model.colors}}
+          </div>
+          <div class="col-xs-6 col-md-9">
+              <h1>Characters List</h1>
+            {{characters-list updateCharacterWeightRanks=(route-action 'updateCharacterWeightRanks' model.characters palette) characters=model.characters palette=palette}}
+          </div>
+      </div>
+  {{/each}}
 </div>
