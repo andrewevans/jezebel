@@ -8,6 +8,11 @@ export default Ember.Component.extend({
     var characters = this.get('characters'),
       shades = this.get('palette').get('shades');
 
+    this.setWeightedRanks(characters, shades);
+  },
+
+  // Cycle through all of the characters and add weights according to rules from all of the shades
+  setWeightedRanks(characters, shades) {
     characters.forEach((character) => {
 
       shades.forEach((shade) => {
