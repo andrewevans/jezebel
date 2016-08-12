@@ -1,0 +1,19 @@
+<div id="inception-display" class="{{if is_playing 'overlay' 'hidden'}}">
+    <audio id="displayMusic" src="https://dl.dropboxusercontent.com/s/9hcwd5elae9wbw6/the-winner-is.mp3" style="visibility: hidden"></audio>
+
+    <div class="container">
+      {{current_character_title}}
+    </div>
+
+    <button onclick={{perform cycleNames}}>
+        Perform the Task
+    </button>
+
+    <button onclick={{cancel-all cycleNames}}>
+        Cancel
+    </button>
+</div>
+
+<button onclick={{perform cycleNames}}>
+    Perform the Task
+</button>
