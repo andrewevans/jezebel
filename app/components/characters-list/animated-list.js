@@ -6,6 +6,15 @@ export default Ember.Component.extend({
   player: null,
   is_inverse: false,
   current_character: null,
+
+  //@TODO: Hack to make CSS animation restart due to the span being reapplied
+  current_character_name: Ember.computed('current_character', function() {
+    var current_character = this.get('current_character');
+
+    if (current_character !== null) {
+      return Ember.String.htmlSafe('<span>' + current_character.get('title') + '</span>');
+    }
+  }),
   sort_definition: ['weight_ranked:desc'],
   didInsertElement() {
     this._super(...arguments);
@@ -37,7 +46,7 @@ export default Ember.Component.extend({
         characters = this.shuffle(this.get('characters')); // Get a freshly shuffled list of characters
       }
 
-      yield timeout((character.get('weight_ranked') * 1.1) + 10);
+      yield timeout((character.get('weight_ranked') * 10.1) + 10);
     }
   }).restartable(),
   animationFlare(character, count) {

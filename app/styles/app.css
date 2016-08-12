@@ -88,8 +88,38 @@ html, body {
   opacity:0.75;
   transform: translateX(-50%) translateY(-50%);
   text-align: center;
-  font-size: 10em;
+  font-size: 1em;
+  -webkit-transition: font-size 0.3s ease;
+  -moz-transition: font-size 0.3s ease;
+  -o-transition: font-size 0.3s ease;
+  -ms-transition: font-size 0.3s ease;
+}
 
+.container span {
+  font-size: 10em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: #FFF;
+  margin: 0;
+  padding: 90px 0 25px 0;
+  transform-origin: 50% 100%;
+  text-shadow: 2px 2px 2px #333;
+  animation-duration: .3s; /* This animation duration should be less than the minimum duration that a name is displayed */
+  animation-name: fadeAndScale;
+  animation-timing-function: cubic-bezier(.71,.55,.62,1.57);
+}
+
+@keyframes fadeAndScale {
+  from {
+    opacity: 0;
+    transform: scale(.9, .9);
+    font-size: 1em;
+  }
+  to {
+    opacity: 0.8;
+    transform: scale(1, 1);
+    font-size: 10em;
+  }
 }
 
 @media screen and (max-device-width : 320px)
