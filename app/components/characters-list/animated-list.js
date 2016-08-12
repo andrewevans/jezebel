@@ -52,9 +52,7 @@ export default Ember.Component.extend({
         characters = this.shuffle(this.get('characters')); // Get a freshly shuffled list of characters
       }
 
-      yield timeout(character_duration / 2);
-      player.pause();
-      yield timeout(character_duration / 2);
+      yield timeout(character_duration);
     }
   }).restartable(),
   animationFlare(character, count) {
