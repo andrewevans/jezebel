@@ -83,42 +83,47 @@ html, body {
 
 .container {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  opacity:0.75;
-  transform: translateX(-50%) translateY(-50%);
+  top: 25%;
+  left: 0;
+  margin-top: -10em;
+  width: 100%;
+  opacity:1;
   text-align: center;
-  font-size: 1em;
   -webkit-transition: font-size 0.3s ease;
   -moz-transition: font-size 0.3s ease;
   -o-transition: font-size 0.3s ease;
   -ms-transition: font-size 0.3s ease;
 }
 
-.container span {
-  font-size: 10em;
+.container > span {
+  display: block;
+  font-size: 20em;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: #FFF;
   margin: 0;
   padding: 90px 0 25px 0;
   transform-origin: 50% 100%;
-  text-shadow: 2px 2px 2px #333;
-  animation-duration: .3s; /* This animation duration should be less than the minimum duration that a name is displayed */
+  text-shadow: 2px 2px 2px #000;
+  animation-duration: .3s; /* This can be overridden by the 'animated-list' component to match the min duration */
   animation-name: fadeAndScale;
   animation-timing-function: cubic-bezier(.71,.55,.62,1.57);
+  opacity: 0.9;
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
 }
 
 @keyframes fadeAndScale {
   from {
-    opacity: 0;
-    transform: scale(.9, .9);
-    font-size: 1em;
+    opacity: 0.5;
+    font-size: 3em;
   }
   to {
-    opacity: 0.8;
-    transform: scale(1, 1);
-    font-size: 10em;
+    opacity: 0.9;
+    font-size: 30em;
   }
 }
 

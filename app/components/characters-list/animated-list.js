@@ -2,6 +2,10 @@ import Ember from 'ember';
 import { task, timeout } from 'ember-concurrency';
 
 export default Ember.Component.extend({
+  min_duration: 0.05,
+  max_duration: 0.4,
+  sorted_characters: Ember.computed.sort('characters', 'sort_definition'),
+  sort_definition: ['weight_ranked:desc'],
   is_playing: false,
   player: null,
   is_inverse: false,
@@ -12,10 +16,11 @@ export default Ember.Component.extend({
     var current_character = this.get('current_character');
 
     if (current_character !== null) {
-      return Ember.String.htmlSafe('<span>' + current_character.get('title') + '</span>');
+      return Ember.String.htmlSafe('<span style="animation-duration: ' + this.get('min_duration') + 's">' + current_character.get('title') + '</span>');
+    } else {
+      return Ember.String.htmlSafe('<span style="animation-duration: ' + this.get('min_duration') + 's"></span>');
     }
   }),
-  sort_definition: ['weight_ranked:desc'],
   didInsertElement() {
     this._super(...arguments);
 
@@ -30,10 +35,11 @@ export default Ember.Component.extend({
     this.set('is_playing', true); // Flag that the cycle is currently playing
 
     player.currentTime = 16;
-    player.play();
 
     while (count !== character_length) {
-      let character = characters.objectAt(count);
+      player.play();
+      let character = characters.objectAt(count),
+      character_duration = this.normalizeDuration(character);
 
       this.animationFlare(character, count);
 
@@ -46,7 +52,9 @@ export default Ember.Component.extend({
         characters = this.shuffle(this.get('characters')); // Get a freshly shuffled list of characters
       }
 
-      yield timeout((character.get('weight_ranked') * 10.1) + 10);
+      yield timeout(character_duration / 2);
+      player.pause();
+      yield timeout(character_duration / 2);
     }
   }).restartable(),
   animationFlare(character, count) {
@@ -57,6 +65,21 @@ export default Ember.Component.extend({
     } else {
       this.set('is_inverse', false);
     }
+  },
+  normalizeDuration(character) {
+
+    // Max weight of all characters
+    var max_weight_ranked = parseInt(this.get('sorted_characters').objectAt(0).get('weight_ranked')),
+      min_duration = this.get('min_duration'),
+      max_duration = this.get('max_duration'),
+
+    // Character's weight expressed as a percentage of max weight
+      character_weight_percentile = parseInt(character.get('weight_ranked')) / max_weight_ranked,
+
+    // Character's normalized duration expressed in seconds off of min duration
+      character_duration = ((character_weight_percentile * (max_duration - min_duration)) + min_duration) * 1000;
+
+    return character_duration;
   },
 
   // Copied/pasted implementation of the Fisher–Yates shuffle
