@@ -56,6 +56,17 @@ export default Ember.Route.extend({
               }
               break;
 
+            // Popularity is from 0 (least popular) to 100 (most popular)
+            // The character's popularity must be within 25% of the shade's value
+            case 'popularity':
+              let character_value = parseInt(character.get('popularity')),
+                shade_value = parseInt(shade.get('value')),
+                min = shade_value - 12.5,
+                max = shade_value + 12.5;
+
+              isQualified = (character_value > min && character_value < max ? true : false);
+              break;
+
             default:
               Ember.Logger.warn('The color "' + shade.get('color').get('title') + '" does not have any rules.');
               break;

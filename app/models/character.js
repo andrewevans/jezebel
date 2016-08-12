@@ -9,6 +9,6 @@ export default Model.extend({
   gender: attr(),
   origin: attr(),
   theme: attr(),
-  rarity: attr(),
+  popularity: attr('number', { defaultValue: 50 }), // Default value is neutral, 50 out of 100
   syllables: attr(),
 });
