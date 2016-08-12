@@ -5,8 +5,7 @@ export default Ember.Component.extend({
   is_playing: false,
   player: null,
   is_inverse: false,
-  current_character_title: null,
-  sorted_characters: Ember.computed.sort('characters', 'sort_definition'),
+  current_character: null,
   sort_definition: ['weight_ranked:desc'],
   didInsertElement() {
     this._super(...arguments);
@@ -14,7 +13,7 @@ export default Ember.Component.extend({
     this.set('player', this.$('audio')[0]);
   },
   cycleNames: task(function * () {
-    var characters = this.get('sorted_characters'),
+    var characters = this.shuffle(this.get('characters')),
       character_length = characters.get('length'),
       count = 0,
       player = this.get('player');
@@ -24,7 +23,7 @@ export default Ember.Component.extend({
     player.currentTime = 16;
     player.play();
 
-    while (true) {
+    while (count !== character_length) {
       let character = characters.objectAt(count);
 
       this.animationFlare(character, count);
@@ -33,8 +32,9 @@ export default Ember.Component.extend({
 
       count++;
 
-      if (count === characters.get('length')) {
+      if (count === character_length) {
         count = 0;
+        characters = this.shuffle(this.get('characters')); // Get a freshly shuffled list of characters
       }
 
       yield timeout((character.get('weight_ranked') * 1.1) + 10);
@@ -48,6 +48,28 @@ export default Ember.Component.extend({
     } else {
       this.set('is_inverse', false);
     }
+  },
+
+  // Copied/pasted implementation of the Fisher–Yates shuffle
+  shuffle(array) {
+    var currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
   },
   actions: {
     cancelAll() {
