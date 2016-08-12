@@ -3,7 +3,7 @@ import { task, timeout } from 'ember-concurrency';
 
 export default Ember.Component.extend({
   min_duration: 0.05,
-  max_duration: 0.4,
+  max_duration: 0.2,
   sorted_characters: Ember.computed.sort('characters', 'sort_definition'),
   sort_definition: ['weight_ranked:desc'],
   is_playing: false,
