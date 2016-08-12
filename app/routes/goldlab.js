@@ -26,34 +26,43 @@ export default Ember.Route.extend({
       shade.set('weight', weight);
       shade.save();
     },
-    updateCharacterWeightRanks(user) {
-      var characters = this.store.peekAll('character'),
-        shades = user.get('palette').get('getShades');
 
-      characters.forEach(function(character) {
+    // Cycle through all of the characters and add weights according to rules from all of the shades
+    updateCharacterWeightRanks(characters, palette) {
+      var shades = palette.get('shades');
+
+      characters.forEach((character) => {
+
         character.set('weight_ranked', 0); // Zero out ranked weight, to be freshly calculated here
 
-        shades.forEach(function(shade) {
+        shades.forEach((shade) => {
+
+          let isQualified = false;
 
           switch(shade.get('color').get('title')) {
 
             case 'gender':
-              if (shade.get('value') === character.get('gender')) {
-                // Found a match, so give the character the points
-                character.set('weight_ranked', (character.get('weight_ranked') + shade.get('weight_ranked')));
+              if (parseInt(shade.get('value')) === parseInt(character.get('gender'))) {
+                isQualified = true; // Found a match, so give the character the points
               }
               break;
 
             case 'startsWith':
-              var startsWith_value = shade.get('value');
-              var character_title = character.get('title').toLowerCase();
+              let startsWith_value = shade.get('value').toLowerCase();
+              let character_title = character.get('title').toLowerCase();
+
               if (character_title.indexOf(startsWith_value) === 0) {
-                character.set('weight_ranked', (character.get('weight_ranked') + shade.get('weight_ranked')));
+                isQualified = true; // Found a match, so give the character the points
               }
               break;
 
             default:
+              Ember.Logger.warn('The color "' + shade.get('color').get('title') + '" does not have any rules.');
               break;
+          }
+
+          if (isQualified) {
+            character.set('weight_ranked', (parseInt(character.get('weight_ranked')) + parseInt(shade.get('weight'))));
           }
         });
       });
