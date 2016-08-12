@@ -83,13 +83,48 @@ html, body {
 
 .container {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  opacity:0.75;
-  transform: translateX(-50%) translateY(-50%);
+  top: 25%;
+  left: 0;
+  margin-top: -10em;
+  width: 100%;
+  opacity:1;
   text-align: center;
-  font-size: 10em;
+  -webkit-transition: font-size 0.3s ease;
+  -moz-transition: font-size 0.3s ease;
+  -o-transition: font-size 0.3s ease;
+  -ms-transition: font-size 0.3s ease;
+}
 
+.container > span {
+  display: block;
+  font-size: 50em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: #FFF;
+  margin: 0;
+  padding: 90px 0 25px 0;
+  transform-origin: 50% 100%;
+  text-shadow: 2px 2px 2px #000;
+  animation-duration: .3s; /* This can be overridden by the 'animated-list' component to match the min duration */
+  animation-name: fadeAndScale;
+  animation-timing-function: cubic-bezier(.71,.55,.62,1.57);
+  opacity: 0.7;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+@keyframes fadeAndScale {
+  from {
+    opacity: 0.5;
+    font-size: 3em;
+  }
+  to {
+    opacity: 0.9;
+    font-size: 50em;
+  }
 }
 
 @media screen and (max-device-width : 320px)
