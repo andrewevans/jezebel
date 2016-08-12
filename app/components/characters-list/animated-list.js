@@ -16,7 +16,7 @@ export default Ember.Component.extend({
   cycleNames: task(function * () {
     var characters = this.get('sorted_characters'),
       character_length = characters.get('length'),
-      count = character_length - 1,
+      count = 0,
       player = this.get('player');
 
     this.set('is_playing', true); // Flag that the cycle is currently playing
@@ -24,17 +24,17 @@ export default Ember.Component.extend({
     player.currentTime = 16;
     player.play();
 
-    while (count > 0) {
+    while (true) {
       let character = characters.objectAt(count);
 
       this.animationFlare(character, count);
 
-      this.set('current_character_title', character.get('title'));
+      this.set('current_character', character);
 
-      count--;
+      count++;
 
-      if (count === 0) {
-        count = character_length - 1;
+      if (count === characters.get('length')) {
+        count = 0;
       }
 
       yield timeout((character.get('weight_ranked') * 1.1) + 10);
