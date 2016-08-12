@@ -35,9 +35,9 @@ export default Ember.Component.extend({
     this.set('is_playing', true); // Flag that the cycle is currently playing
 
     player.currentTime = 16;
+    player.play();
 
     while (count !== character_length) {
-      player.play();
       let character = characters.objectAt(count),
       character_duration = this.normalizeDuration(character);
 
